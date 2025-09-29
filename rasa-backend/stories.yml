@@ -1,0 +1,38 @@
+version: "3.1"
+
+stories:
+
+- story: greet path
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: goodbye path
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: breathing symptoms path
+  steps:
+  - intent: symptoms_breathing
+  - action: utter_assess_breathing
+
+- story: fever symptoms path
+  steps:
+  - intent: symptoms_fever
+  - action: utter_assess_fever
+
+- story: pain symptoms path
+  steps:
+  - intent: symptoms_pain
+  - action: utter_assess_pain
+
+- story: emergency path
+  steps:
+  - intent: emergency
+  - action: utter_emergency_response
+
+- story: appointment booking path
+  steps:
+  - intent: schedule_appointment
+  - action: utter_book_appointment

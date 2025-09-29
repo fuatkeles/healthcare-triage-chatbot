@@ -1,0 +1,53 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - symptoms_breathing
+  - symptoms_fever
+  - symptoms_pain
+  - emergency
+  - schedule_appointment
+  - cancel_appointment
+
+entities:
+  - symptom
+  - severity
+  - location
+  - duration
+
+slots:
+  symptom:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: symptom
+  severity:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: severity
+
+responses:
+  utter_greet:
+  - text: "Hello! I'm your healthcare assistant. How can I help you today?"
+
+  utter_goodbye:
+  - text: "Goodbye! Take care of your health."
+
+  utter_iamabot:
+  - text: "I am a healthcare triage bot, powered by Rasa."
+
+actions:
+  - utter_greet
+  - utter_goodbye
+  - utter_iamabot
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
