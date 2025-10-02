@@ -13,6 +13,9 @@ eggs/
 lib/
 lib64/
 parts/
+
+# Allow Next.js lib folder
+!frontend-nextjs/lib/
 sdist/
 var/
 wheels/
@@ -121,3 +124,10 @@ logs
 *.temp
 tmp/
 temp/
+
+# Documentation files (except README)
+*.md
+!README.md
+
+# Test submissions
+submission_*/

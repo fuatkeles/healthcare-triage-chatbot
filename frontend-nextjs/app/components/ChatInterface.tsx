@@ -36,6 +36,8 @@ interface Appointment {
 }
 
 export default function ChatInterface() {
+  const RASA_API_URL = process.env.NEXT_PUBLIC_RASA_API_URL || 'http://localhost:5005'
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
@@ -70,7 +72,7 @@ export default function ChatInterface() {
   const initializeConversation = async () => {
     try {
       // Send initial message to Rasa
-      const response = await fetch('http://localhost:5005/webhooks/rest/webhook', {
+      const response = await fetch(`${RASA_API_URL}/webhooks/rest/webhook`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -143,7 +145,7 @@ export default function ChatInterface() {
 
     try {
       // Send message to Rasa
-      const response = await fetch('http://localhost:5005/webhooks/rest/webhook', {
+      const response = await fetch(`${RASA_API_URL}/webhooks/rest/webhook`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -284,7 +286,7 @@ export default function ChatInterface() {
     setIsTyping(true)
 
     // Send the payload to backend
-    fetch('http://localhost:5005/webhooks/rest/webhook', {
+    fetch(`${RASA_API_URL}/webhooks/rest/webhook`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

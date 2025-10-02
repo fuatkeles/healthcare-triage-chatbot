@@ -10,6 +10,8 @@ nlu:
     - good morning
     - good evening
     - hey there
+    - hi there
+    - greetings
 
 - intent: goodbye
   examples: |
@@ -18,6 +20,8 @@ nlu:
     - see you
     - see you later
     - good night
+    - take care
+    - bye bye
 
 - intent: affirm
   examples: |
@@ -26,6 +30,9 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - right
+    - yeah
+    - yep
 
 - intent: deny
   examples: |
@@ -34,29 +41,79 @@ nlu:
     - I don't think so
     - don't like that
     - no way
+    - nope
+    - not really
 
-- intent: symptoms_breathing
+- intent: describe_symptoms
+  examples: |
+    - I have symptoms
+    - I'm not feeling well
+    - I feel sick
+    - something is wrong
+    - I need medical help
+    - I have a health concern
+    - not feeling good
+    - feeling unwell
+
+- intent: chest_pain
+  examples: |
+    - I have chest pain
+    - my chest hurts
+    - pain in my chest
+    - chest discomfort
+    - tightness in chest
+    - pressure in my chest
+    - crushing chest pain
+    - sharp chest pain
+    - chest pain and sweating
+    - chest pain radiating to arm
+
+- intent: breathing_difficulty
   examples: |
     - I can't breathe
     - difficulty breathing
     - hard to breathe
     - shortness of breath
     - breathing problems
+    - can't catch my breath
+    - trouble breathing
+    - gasping for air
+    - blue lips
+    - chest tightness when breathing
 
-- intent: symptoms_fever
+- intent: headache
+  examples: |
+    - I have a headache
+    - my head hurts
+    - severe headache
+    - migraine
+    - head pain
+    - pounding headache
+    - worst headache ever
+    - sudden severe headache
+    - headache with vision problems
+
+- intent: fever
   examples: |
     - I have a fever
     - I'm running a temperature
     - my temperature is high
     - feeling hot
+    - feverish
+    - high temperature
+    - fever with chills
+    - fever of 103
 
-- intent: symptoms_pain
+- intent: abdominal_pain
   examples: |
-    - I have pain
-    - it hurts
-    - chest pain
     - stomach pain
-    - headache
+    - my stomach hurts
+    - abdominal pain
+    - belly ache
+    - pain in my abdomen
+    - stomach cramps
+    - sharp stomach pain
+    - severe abdominal pain
 
 - intent: emergency
   examples: |
@@ -64,6 +121,13 @@ nlu:
     - emergency
     - call ambulance
     - urgent
+    - call 999
+    - this is an emergency
+    - life threatening
+    - I think I'm dying
+    - severe symptoms
+    - can't move
+    - losing consciousness
 
 - intent: schedule_appointment
   examples: |
@@ -71,3 +135,85 @@ nlu:
     - book appointment
     - schedule a visit
     - see a doctor
+    - make an appointment
+    - book a consultation
+    - I want to see a GP
+    - schedule appointment please
+
+- intent: view_appointments
+  examples: |
+    - show my appointments
+    - view appointments
+    - my bookings
+    - check my appointments
+    - do I have any appointments
+
+- intent: cancel_appointment
+  examples: |
+    - cancel appointment
+    - cancel my booking
+    - I need to cancel
+    - remove appointment
+    - delete my appointment
+
+- intent: speak_to_nurse
+  examples: |
+    - I want to talk to a nurse
+    - speak with someone
+    - talk to a person
+    - human help
+    - I need to speak to someone
+    - connect me to a nurse
+    - can I talk to a doctor
+
+- intent: sudden_onset
+  examples: |
+    - sudden
+    - it started suddenly
+    - came on suddenly
+    - all of a sudden
+    - just started
+    - very sudden
+
+- intent: gradual_onset
+  examples: |
+    - gradual
+    - came on gradually
+    - slowly getting worse
+    - over time
+    - developed slowly
+    - been getting worse
+
+- synonym: chest_pain
+  examples: |
+    - chest discomfort
+    - chest tightness
+    - chest pressure
+
+- synonym: breathing_difficulty
+  examples: |
+    - shortness of breath
+    - dyspnea
+    - SOB
+
+- synonym: fever
+  examples: |
+    - temperature
+    - pyrexia
+    - high temp
+
+- entity: severity
+  examples: |
+    - [mild](severity) headache
+    - [severe](severity) chest pain
+    - [moderate](severity) discomfort
+    - pain is [extreme](severity)
+    - [slight](severity) fever
+
+- entity: duration
+  examples: |
+    - for [3 days](duration)
+    - since [yesterday](duration)
+    - [2 hours](duration) ago
+    - lasted [a week](duration)
+    - ongoing for [months](duration)

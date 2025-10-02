@@ -12,27 +12,81 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
 
-- story: breathing symptoms path
+- story: chest pain emergency
   steps:
-  - intent: symptoms_breathing
-  - action: utter_assess_breathing
+  - intent: chest_pain
+  - action: utter_ask_onset
+  - intent: sudden_onset
+  - action: utter_emergency_chest_pain
 
-- story: fever symptoms path
+- story: chest pain gradual
   steps:
-  - intent: symptoms_fever
+  - intent: chest_pain
+  - action: utter_ask_onset
+  - intent: gradual_onset
+  - action: utter_assess_chest_pain
+
+- story: breathing difficulty emergency
+  steps:
+  - intent: breathing_difficulty
+  - action: utter_ask_breathing_severity
+  - intent: emergency
+  - action: utter_emergency_breathing
+
+- story: breathing with fever
+  steps:
+  - intent: breathing_difficulty
+  - action: utter_ask_breathing_severity
+  - intent: fever
+  - action: utter_respiratory_infection
+
+- story: headache assessment
+  steps:
+  - intent: headache
+  - action: utter_assess_headache
+
+- story: fever assessment
+  steps:
+  - intent: fever
   - action: utter_assess_fever
 
-- story: pain symptoms path
+- story: abdominal pain
   steps:
-  - intent: symptoms_pain
-  - action: utter_assess_pain
+  - intent: abdominal_pain
+  - action: utter_assess_abdominal
 
-- story: emergency path
+- story: emergency direct
   steps:
   - intent: emergency
   - action: utter_emergency_response
 
-- story: appointment booking path
+- story: appointment booking
   steps:
+  - intent: schedule_appointment
+  - action: utter_book_appointment
+
+- story: view appointments
+  steps:
+  - intent: view_appointments
+  - action: utter_show_appointments
+
+- story: cancel appointment
+  steps:
+  - intent: cancel_appointment
+  - action: utter_cancel_appointment
+
+- story: speak to nurse
+  steps:
+  - intent: speak_to_nurse
+  - action: utter_connect_nurse
+
+- story: symptom to appointment
+  steps:
+  - intent: describe_symptoms
+  - action: utter_ask_symptom_type
+  - intent: chest_pain
+  - action: utter_ask_onset
+  - intent: gradual_onset
+  - action: utter_assess_chest_pain
   - intent: schedule_appointment
   - action: utter_book_appointment

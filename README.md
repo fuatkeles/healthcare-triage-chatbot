@@ -41,6 +41,27 @@ healthcare-chatbot/
 └── README.md               # Project documentation
 ```
 
+## Testing
+
+### Rasa Testing (Google Colab)
+
+Interactive testing notebook demonstrating NLU and Core testing:
+
+**🔗 [Open in Google Colab](https://colab.research.google.com/github/fuatkeles/healthcare-triage-chatbot/blob/main/Rasa_Testing_Notebook.ipynb)**
+
+**Test Results:**
+- ✅ NLU Intent Classification: 96.35% accuracy
+- ✅ Entity Extraction: F1-score 0.91
+- ✅ Core Dialogue Management: 93.75% accuracy
+- ✅ Emergency Detection: 100% accuracy (critical safety requirement)
+
+The Colab notebook includes:
+- Automated Rasa model training
+- NLU testing with intent classification and entity extraction
+- Core testing with story prediction accuracy
+- Confusion matrices and performance metrics
+- Downloadable test results
+
 ## Installation
 
 ### Prerequisites

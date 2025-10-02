@@ -5,20 +5,23 @@ intents:
   - goodbye
   - affirm
   - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - symptoms_breathing
-  - symptoms_fever
-  - symptoms_pain
+  - describe_symptoms
+  - chest_pain
+  - breathing_difficulty
+  - headache
+  - fever
+  - abdominal_pain
   - emergency
   - schedule_appointment
+  - view_appointments
   - cancel_appointment
+  - speak_to_nurse
+  - sudden_onset
+  - gradual_onset
 
 entities:
   - symptom
   - severity
-  - location
   - duration
 
 slots:
@@ -32,21 +35,96 @@ slots:
     mappings:
     - type: from_entity
       entity: severity
+  duration:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: duration
 
 responses:
   utter_greet:
-  - text: "Hello! I'm your healthcare assistant. How can I help you today?"
+  - text: "Hello! I'm your healthcare triage assistant. How can I help you today?"
 
   utter_goodbye:
-  - text: "Goodbye! Take care of your health."
+  - text: "Goodbye! Take care of your health. Call 999 if you have an emergency."
 
-  utter_iamabot:
-  - text: "I am a healthcare triage bot, powered by Rasa."
+  utter_ask_onset:
+  - text: "Is this pain sudden or gradual?"
+    buttons:
+    - title: "Sudden"
+      payload: "/sudden_onset"
+    - title: "Gradual"
+      payload: "/gradual_onset"
+
+  utter_emergency_chest_pain:
+  - text: "⚠️ EMERGENCY - CALL 999 IMMEDIATELY\n\nSudden chest pain can be a heart attack. Do not drive yourself."
+
+  utter_assess_chest_pain:
+  - text: "For gradual chest pain, I recommend seeing your GP today. If it worsens, call 999."
+
+  utter_ask_breathing_severity:
+  - text: "How severe is your breathing difficulty? Can you speak in full sentences?"
+
+  utter_emergency_breathing:
+  - text: "⚠️ EMERGENCY - CALL 999 NOW\n\nSevere breathing difficulty requires immediate medical attention."
+
+  utter_respiratory_infection:
+  - text: "Breathing difficulty with fever suggests possible respiratory infection. See your GP today."
+
+  utter_assess_headache:
+  - text: "How severe is your headache on a scale of 1-10?"
+
+  utter_assess_fever:
+  - text: "What is your temperature? Fever above 103°F requires urgent medical attention."
+
+  utter_assess_abdominal:
+  - text: "Abdominal pain assessment: Is the pain sharp or dull? Where is it located?"
+
+  utter_emergency_response:
+  - text: "⚠️ CALL 999 IMMEDIATELY for emergency medical assistance."
+
+  utter_book_appointment:
+  - text: "I can help you book an appointment. Which department do you need?"
+
+  utter_show_appointments:
+  - text: "Here are your upcoming appointments."
+
+  utter_cancel_appointment:
+  - text: "Which appointment would you like to cancel?"
+
+  utter_connect_nurse:
+  - text: "Connecting you to a nurse now. Please wait..."
+
+  utter_ask_symptom_type:
+  - text: "What symptoms are you experiencing?"
+    buttons:
+    - title: "Chest pain"
+      payload: "/chest_pain"
+    - title: "Breathing difficulty"
+      payload: "/breathing_difficulty"
+    - title: "Headache"
+      payload: "/headache"
+    - title: "Fever"
+      payload: "/fever"
 
 actions:
   - utter_greet
   - utter_goodbye
-  - utter_iamabot
+  - utter_ask_onset
+  - utter_emergency_chest_pain
+  - utter_assess_chest_pain
+  - utter_ask_breathing_severity
+  - utter_emergency_breathing
+  - utter_respiratory_infection
+  - utter_assess_headache
+  - utter_assess_fever
+  - utter_assess_abdominal
+  - utter_emergency_response
+  - utter_book_appointment
+  - utter_show_appointments
+  - utter_cancel_appointment
+  - utter_connect_nurse
+  - utter_ask_symptom_type
 
 session_config:
   session_expiration_time: 60
